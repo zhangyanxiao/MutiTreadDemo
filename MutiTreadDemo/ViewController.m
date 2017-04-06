@@ -11,6 +11,7 @@
 #import "mainQueueViewController.h"
 #import "globalQueueViewController.h"
 #import "OtherViewController.h"
+#import "NSOperationUseMethodViewController.h"
 
 @interface ViewController ()
 
@@ -36,11 +37,11 @@
     UIView * titleView = [[UIView alloc] init];
     titleView.frame = CGRectMake(10, 0, self.view.bounds.size.width - 20, 26);
     self.navigationItem.titleView = titleView;
-    NSArray * array = @[@"当前在主线程",@"当前在子线程",@"GCD常用操作"];
+    NSArray * array = @[@"当前在主线程",@"当前在子线程",@"GCD常用操作",@"NSOperation"];
     ZYXButtonView * buttonView = [[ZYXButtonView alloc] initWithTitleArray:array];
     buttonView.selectedTitleColor = [UIColor orangeColor];
     buttonView.normalTitleColor = [UIColor blackColor];
-    buttonView.fontsize = 16;
+    buttonView.fontsize = 12;
     buttonView.lineColor = [UIColor orangeColor];
     buttonView.frame = titleView.bounds;
     [titleView addSubview:buttonView];
@@ -74,6 +75,8 @@
    
     [self addChildViewController:otherVC];
     
+    NSOperationUseMethodViewController * OperationVC = [[NSOperationUseMethodViewController alloc] init];
+    [self addChildViewController:OperationVC];
     
 }
 

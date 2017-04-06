@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "ViewController.h"
+#import "NSOperationUseMethodViewController.h"
 
 @interface AppDelegate ()
 
@@ -24,6 +25,7 @@
     
     
     ViewController * vc = [[ViewController alloc] init];
+//    NSOperationUseMethodViewController *  NSOperationVC = [[NSOperationUseMethodViewController alloc] init];
     UINavigationController * navi = [[UINavigationController alloc] initWithRootViewController:vc];
     self.window.rootViewController = navi;
     [self.window makeKeyAndVisible];

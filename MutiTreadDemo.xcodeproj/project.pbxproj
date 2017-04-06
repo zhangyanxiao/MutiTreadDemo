@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		A00372151E8CA5CB00C8C664 /* TaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A00372141E8CA5CB00C8C664 /* TaskViewController.m */; };
+		A009E0F91E95E3C000D2EFB7 /* NSOperationUseMethodViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A009E0F81E95E3C000D2EFB7 /* NSOperationUseMethodViewController.m */; };
+		A009E0FF1E961FCE00D2EFB7 /* ZYXNSOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = A009E0FE1E961FCE00D2EFB7 /* ZYXNSOperation.m */; };
 		A01ECD571E8BAA30007B2798 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A01ECD561E8BAA30007B2798 /* main.m */; };
 		A01ECD5A1E8BAA30007B2798 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A01ECD591E8BAA30007B2798 /* AppDelegate.m */; };
 		A01ECD5D1E8BAA30007B2798 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A01ECD5C1E8BAA30007B2798 /* ViewController.m */; };
@@ -37,6 +39,10 @@
 /* Begin PBXFileReference section */
 		A00372131E8CA5CB00C8C664 /* TaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskViewController.h; sourceTree = "<group>"; };
 		A00372141E8CA5CB00C8C664 /* TaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskViewController.m; sourceTree = "<group>"; };
+		A009E0F71E95E3C000D2EFB7 /* NSOperationUseMethodViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSOperationUseMethodViewController.h; sourceTree = "<group>"; };
+		A009E0F81E95E3C000D2EFB7 /* NSOperationUseMethodViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSOperationUseMethodViewController.m; sourceTree = "<group>"; };
+		A009E0FD1E961FCE00D2EFB7 /* ZYXNSOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYXNSOperation.h; sourceTree = "<group>"; };
+		A009E0FE1E961FCE00D2EFB7 /* ZYXNSOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYXNSOperation.m; sourceTree = "<group>"; };
 		A01ECD521E8BAA30007B2798 /* MutiTreadDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MutiTreadDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A01ECD561E8BAA30007B2798 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A01ECD581E8BAA30007B2798 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -101,6 +107,50 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A009E1001E96410300D2EFB7 /* GCD-主线程 */ = {
+			isa = PBXGroup;
+			children = (
+				A01ECD721E8BABF6007B2798 /* mainQueueViewController.h */,
+				A01ECD731E8BABF6007B2798 /* mainQueueViewController.m */,
+				A00372131E8CA5CB00C8C664 /* TaskViewController.h */,
+				A00372141E8CA5CB00C8C664 /* TaskViewController.m */,
+			);
+			name = "GCD-主线程";
+			sourceTree = "<group>";
+		};
+		A009E1011E96413200D2EFB7 /* GCD-子线程 */ = {
+			isa = PBXGroup;
+			children = (
+				A01ECD751E8BAC0A007B2798 /* globalQueueViewController.h */,
+				A01ECD761E8BAC0A007B2798 /* globalQueueViewController.m */,
+				A0DE9A701E8D15C3002F7444 /* globalTaskViewController.h */,
+				A0DE9A711E8D15C3002F7444 /* globalTaskViewController.m */,
+			);
+			name = "GCD-子线程";
+			sourceTree = "<group>";
+		};
+		A009E1021E96415B00D2EFB7 /* GCD-其他函数 */ = {
+			isa = PBXGroup;
+			children = (
+				A0DE9A6D1E8D0EA5002F7444 /* OtherViewController.h */,
+				A0DE9A6E1E8D0EA5002F7444 /* OtherViewController.m */,
+				A0F3B79E1E8E309300CD7870 /* OtherDetailViewController.h */,
+				A0F3B79F1E8E309300CD7870 /* OtherDetailViewController.m */,
+			);
+			name = "GCD-其他函数";
+			sourceTree = "<group>";
+		};
+		A009E1031E96417800D2EFB7 /* NSOperation */ = {
+			isa = PBXGroup;
+			children = (
+				A009E0F71E95E3C000D2EFB7 /* NSOperationUseMethodViewController.h */,
+				A009E0F81E95E3C000D2EFB7 /* NSOperationUseMethodViewController.m */,
+				A009E0FD1E961FCE00D2EFB7 /* ZYXNSOperation.h */,
+				A009E0FE1E961FCE00D2EFB7 /* ZYXNSOperation.m */,
+			);
+			name = NSOperation;
+			sourceTree = "<group>";
+		};
 		A01ECD491E8BAA30007B2798 = {
 			isa = PBXGroup;
 			children = (
@@ -127,20 +177,12 @@
 				A01ECD7B1E8BB12E007B2798 /* Masonry */,
 				A01ECD581E8BAA30007B2798 /* AppDelegate.h */,
 				A01ECD591E8BAA30007B2798 /* AppDelegate.m */,
+				A009E1031E96417800D2EFB7 /* NSOperation */,
+				A009E1021E96415B00D2EFB7 /* GCD-其他函数 */,
+				A009E1011E96413200D2EFB7 /* GCD-子线程 */,
+				A009E1001E96410300D2EFB7 /* GCD-主线程 */,
 				A01ECD5B1E8BAA30007B2798 /* ViewController.h */,
 				A01ECD5C1E8BAA30007B2798 /* ViewController.m */,
-				A01ECD721E8BABF6007B2798 /* mainQueueViewController.h */,
-				A01ECD731E8BABF6007B2798 /* mainQueueViewController.m */,
-				A00372131E8CA5CB00C8C664 /* TaskViewController.h */,
-				A00372141E8CA5CB00C8C664 /* TaskViewController.m */,
-				A01ECD751E8BAC0A007B2798 /* globalQueueViewController.h */,
-				A01ECD761E8BAC0A007B2798 /* globalQueueViewController.m */,
-				A0DE9A701E8D15C3002F7444 /* globalTaskViewController.h */,
-				A0DE9A711E8D15C3002F7444 /* globalTaskViewController.m */,
-				A0DE9A6D1E8D0EA5002F7444 /* OtherViewController.h */,
-				A0DE9A6E1E8D0EA5002F7444 /* OtherViewController.m */,
-				A0F3B79E1E8E309300CD7870 /* OtherDetailViewController.h */,
-				A0F3B79F1E8E309300CD7870 /* OtherDetailViewController.m */,
 				A01ECD781E8BACB2007B2798 /* BaseTableViewController.h */,
 				A01ECD791E8BACB2007B2798 /* BaseTableViewController.m */,
 				A01ECD5E1E8BAA30007B2798 /* Main.storyboard */,
@@ -278,10 +320,12 @@
 				A01ECD7A1E8BACB2007B2798 /* BaseTableViewController.m in Sources */,
 				A01ECD951E8BB12E007B2798 /* MASCompositeConstraint.m in Sources */,
 				A0F3B7A01E8E309300CD7870 /* OtherDetailViewController.m in Sources */,
+				A009E0FF1E961FCE00D2EFB7 /* ZYXNSOperation.m in Sources */,
 				A01ECDA11E8BB19C007B2798 /* UIView+ZYXExtension.m in Sources */,
 				A01ECD981E8BB12E007B2798 /* MASLayoutConstraint.m in Sources */,
 				A01ECD771E8BAC0A007B2798 /* globalQueueViewController.m in Sources */,
 				A01ECD5A1E8BAA30007B2798 /* AppDelegate.m in Sources */,
+				A009E0F91E95E3C000D2EFB7 /* NSOperationUseMethodViewController.m in Sources */,
 				A00372151E8CA5CB00C8C664 /* TaskViewController.m in Sources */,
 				A01ECD9E1E8BB12E007B2798 /* ViewController+MASAdditions.m in Sources */,
 				A01ECD571E8BAA30007B2798 /* main.m in Sources */,
