@@ -7,8 +7,9 @@
 //
 
 #import "NSOperationUseMethodViewController.h"
+#import "ZYXNSOperation.h"
 
-@interface NSOperationUseMethodViewController ()
+@interface NSOperationUseMethodViewController ()<LoadImageDelegate>
 // 通常会使用一个全局队列，管理所有的异步操作
 @property (nonatomic, strong) NSOperationQueue *queue;
 @end
@@ -82,6 +83,13 @@
     [btn4 setTitle:@"线程间通信" forState:UIControlStateNormal];
     [btn4 addTarget:self action:@selector(btn4Clicked:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btn4];
+    
+    UIButton * btn5 = [UIButton buttonWithType:UIButtonTypeCustom];
+    btn5.frame = CGRectMake(50, 350, self.view.bounds.size.width-100, 40);
+    btn5.backgroundColor = [UIColor orangeColor];
+    [btn5 setTitle:@"自定义NSOperation" forState:UIControlStateNormal];
+    [btn5 addTarget:self action:@selector(btn5Clicked:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:btn5];
     
 }
 -(void)btn1Clicked:(UIButton *)sender{
@@ -232,6 +240,25 @@
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
             NSLog(@"更新 UI %@", [NSThread currentThread]);
         }];
+    }];
+
+}
+
+-(void)btn5Clicked:(UIButton *)sender{
+    ZYXNSOperation * operation = [[ZYXNSOperation alloc] init];
+    operation.imgUrl = @"https://d262ilb51hltx0.cloudfront.net/fit/t/880/264/1*kE8-X3OjeiiSPQFyhL2Tdg.jpeg";
+    operation.loadDelegate = self;
+    [self.queue addOperation:operation];
+        
+}
+
+-(void)loadImageFinish:(UIImage *) image
+{
+    UIImageView * imv = [[UIImageView alloc] initWithFrame:self.view.frame];
+    [self.view addSubview:imv];
+    imv.image = image;
+    [NSTimer scheduledTimerWithTimeInterval:5 repeats:NO block:^(NSTimer * _Nonnull timer) {
+        [imv removeFromSuperview];
     }];
 
 }

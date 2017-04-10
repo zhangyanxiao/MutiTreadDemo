@@ -18,6 +18,27 @@
 经常通过-(BOOL)isCancelled方法检测操作是否被取消，对取消做出响应
  */
 -(void)main{
+    // isCancelled方法检测操作是否被取消，对取消做出响应
+    if(self.isCancelled){
+        return;
+    }
+    NSURL * url = [NSURL URLWithString:self.imgUrl];
+    NSData * imageData = [NSData dataWithContentsOfURL:url];
+    if (self.isCancelled) {
+        url = nil;
+        imageData = nil;
+        return;
+    }
+    
+    UIImage * image = [UIImage imageWithData:imageData];
+    if (self.isCancelled) {
+        image = nil;
+        return;
+    }
+    
+    if (self.loadDelegate!=nil && [self.loadDelegate respondsToSelector:@selector(loadImageFinish:)]) {
+        [(NSObject *)self.loadDelegate performSelectorOnMainThread:@selector(loadImageFinish:) withObject:image waitUntilDone:NO];
+    }
 
     
 }
